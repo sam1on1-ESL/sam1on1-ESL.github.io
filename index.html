@@ -1,0 +1,252 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAM 1on1 - Young Leaders English</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .hero {
+            background: linear-gradient(135deg, #6b7280, #3b82f6);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .section {
+            padding: 3rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .pricing-table {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        th {
+            background: #3b82f6;
+            color: white;
+        }
+        .highlight {
+            background: #dbeafe;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        .cta-button {
+            background: #10b981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+        .cta-button:hover {
+            background: #059669;
+        }
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #3b82f6;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1 class="text-4xl md:update_looptext-5xl font-bold mb-4">SAM 1on1: Young Leaders English</h1>
+        <p class="text-lg md:text-xl">For Learners Aged 5 to 18 - Unlocking Advanced Expression & Confidence</p>
+        <a href="#how-it-works" class="cta-button mt-6">Learn More</a>
+    </div>
+
+    <div class="section">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">Introduction</h2>
+        <p class="text-lg text-gray-600">
+            At SAM 1on1, we don't just teach English—we train young minds to express deeply, speak powerfully, and think globally. Our program guides learners from basic sentences to dynamic communication, equipping them to discuss real-world topics and influential people.
+        </p>
+    </div>
+
+    <div class="section bg-white">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">Learning Goals</h2>
+        <p class="text-lg text-gray-600 mb-4">What Your Child Will Learn & Master:</p>
+        <ul class="list-disc list-inside text-gray-600 space-y-2">
+            <li><strong>Adjective Usage for Expressive Language:</strong> Students will learn to use descriptive words to paint vivid pictures and express emotions, opinions, and impressions. <br><em>Example: "The brave soldier faced a terrible storm."</em></li>
+            <li><strong>Verbs with Conviction:</strong> Upgrade from basic verbs (go, eat, like) to stronger, more expressive verbs (explore, admire, achieve).</li>
+            <li><strong>Adverb Accuracy:</strong> Master adverbs to add detail and flair to speech. <br><em>Example: "She answered quickly but kindly."</em></li>
+            <li><strong>Spontaneous Speaking Development:</strong> Through Q&A, debates, free-talking games, and roleplay, students build fluency and confidence without a script.</li>
+        </ul>
+    </div>
+
+    <div class="section highlight">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4">Signature Skill: Discussing Great People</h2>
+        <p class="text-lg text-gray-600">
+            By the end of the program, students will confidently discuss inspiring figures like Nelson Mandela, Helen Keller, and Malala Yousafzai, understanding their lives, using rich vocabulary to describe their traits and impact, and practicing empathy and critical thinking in speech.
+        </p>
+        <p class="text-lg text-gray-600 italic mt-2">
+            Example: "Helen Keller was a courageous woman who proved that determination can overcome any obstacle. She inspired millions with her story."
+        </p>
+        <p class="text-lg text-gray-600 mt-4">
+            This is a key selling point for parents who want their children to become global citizens—able to speak with clarity, compassion, and pride.
+        </p>
+    </div>
+
+    <div class="section bg-white">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">Bonus Skills</h2>
+        <ul class="list-disc list-inside text-gray-600 space-y-2">
+            <li>Advanced conjunctions (although, however, as a result)</li>
+            <li>Transition phrases (on the other hand, in conclusion)</li>
+            <li>Sentence expansion & paraphrasing</li>
+            <li>Responding to abstract questions like "What does freedom mean to you?"</li>
+        </ul>
+    </div>
+
+    <div class="section pricing-table">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">Course Packages & Pricing</h2>
+        <p class="text-lg text-gray-600 mb-4">For Upper Beginner to Advanced Young Learners</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>No. of Classes</th>
+                    <th>Duration / Class</th>
+                    <th>Price / Class</th>
+                    <th>Total Price</th>
+                    <th>Max Completion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>60</td>
+                    <td>25 minutes</td>
+                    <td>$7.00</td>
+                    <td>$420.00</td>
+                    <td>8 months</td>
+                </tr>
+                <tr>
+                    <td>60</td>
+                    <td>50 minutes</td>
+                    <td>$12.00</td>
+                    <td>$720.00</td>
+                    <td>8 months</td>
+                </tr>
+                <tr>
+                    <td>30</td>
+                    <td>25 minutes</td>
+                    <td>$8.00</td>
+                    <td>$240.00</td>
+                    <td>4 months</td>
+                </tr>
+                <tr>
+                    <td>30</td>
+                    <td>50 minutes</td>
+                    <td>$14.00</td>
+                    <td>$420.00</td>
+                    <td>4 months</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>25 minutes</td>
+                    <td>$8.50</td>
+                    <td>$127.50</td>
+                    <td>2 months</td>
+                </tr>
+                <tr class="highlight">
+                    <td>15 (Young Leaders)</td>
+                    <td>50 minutes</td>
+                    <td>$15.00</td>
+                    <td>$225.00</td>
+                    <td>2 months</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section" id="how-it-works">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">How It Works</h2>
+        <ul class="list-disc list-inside text-gray-600 space-y-2">
+            <li><strong>Level-Appropriate Coaching:</strong> Tailored sessions for age and skill.</li>
+            <li><strong>One-on-One Attention:</strong> Personal guidance with no distractions.</li>
+            <li><strong>Playful for Kids, Powerful for Teens:</strong> Activities match age & interest.</li>
+            <li><strong>Critical Thinking Encouraged:</strong> Express opinions and ask questions.</li>
+            <li><strong>Motivational Topics:</strong> From superheroes to world heroes!</li>
+        </ul>
+        <a href="#" class="cta-button mt-6">Get Started Today</a>
+    </div>
+
+    <div class="scroll-to-top" onclick="scrollToTop()">↑</div>
+
+    <script>
+        // Scroll-to-top button visibility
+        window.addEventListener('scroll', () => {
+            const button = document.querySelector('.scroll-to-top');
+            if (window.scrollY > 300) {
+                button.style.display = 'block';
+            } else {
+                button.style.display = 'none';
+            }
+        });
+
+        // Smooth scroll to top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

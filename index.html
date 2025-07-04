@@ -1,338 +1,271 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAM 1on1 - Young Leaders English</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f3f4f6;
-        }
-        .hero {
-            background: linear-gradient(135deg, #6b7280, #3b82f6);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-        .section {
-            padding: 3rem 1rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .pricing-table {
-            overflow-x: auto;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        th, td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid #e5e7eb;
-        }
-        th {
-            background: #3b82f6;
-            color: white;
-        }
-        .highlight {
-            background: #dbeafe;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-        }
-        .cta-button {
-            background: #10b981;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 999px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            transition: background 0.3s;
-        }
-        .cta-button:hover {
-            background: #059669;
-        }
-        .scroll-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #3b82f6;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 50%;
-            cursor: pointer;
-            display: none;
-        }
-        .about-section {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            align-items: center;
-        }
-        .about-photo {
-            flex: 1;
-            min-width: 200px;
-            text-align: center;
-        }
-        .about-photo img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #3b82f6;
-        }
-        .about-content {
-            flex: 2;
-            min-width: 300px;
-        }
-        .resume-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-        @media (max-width: 768px) {
-            .resume-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coach Sharmz' ESL Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Nunito', sans-serif;
+      background-color: #fff;
+      color: #000;
+    }
+    header {
+      background-color: #E63946;
+      color: white;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      margin: 0 1rem;
+      cursor: pointer;
+    }
+    .tab-content {
+      display: none;
+      padding: 2rem;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .section {
+      margin-bottom: 2rem;
+    }
+    .section h3 {
+      color: #E63946;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 0.5rem;
+      text-align: center;
+    }
+    .contact {
+      margin-top: 2rem;
+      background-color: #A8A8A8;
+      padding: 1rem;
+      color: white;
+    }
+  </style>
 </head>
 <body>
-    <div class="hero">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">SAM 1on1: Young Leaders English</h1>
-        <p class="text-lg md:text-xl">For Learners Aged 5 to 18 - Unlocking Advanced Expression & Confidence</p>
-        <a href="#how-it-works" class="cta-button mt-6">Learn More</a>
-    </div>
+  <header>
+    <h1>Coach Sharmz' ESL Coaching</h1>
+    <nav>
+      <button onclick="showTab('child')">👶 Kids</button>
+      <button onclick="showTab('adult')">🧑 Adults</button>
+    </nav>
+  </header>
 
-    <div class="section">
-        <h2 class="text-3xl font-bold text-gray-800 mb-6">About Me</h2>
-        <div class="about-section">
-            <div class="about-photo">
-                <img src="me.JPG" alt="Sharmaine Aquino Photo">
-                <p class="text-gray-600 mt-2">Sharmaine Aquino</p>
-            </div>
-            <div class="about-content">
-                <p class="text-lg text-gray-600 mb-4">
-                    Dedicated and results-driven professional with a proven track record in language instruction and mentoring for 14 years, and customer service for over 5 years, seeking a dynamic role in sales, customer relationship management, and appointment setting. Leveraging extensive experience in ESL instruction, course planning, and business-level English teaching, I aim to channel my communication skills, adaptability, and strategic thinking into a challenging sales-oriented position. Committed to fostering meaningful customer relationships, driving revenue growth, and utilizing my expertise to contribute to the success of a forward-thinking organization.
-                </p>
-            </div>
-        </div>
+  
+    <div style="text-align: center; margin-top: 2rem;">
+      <img src="me.jpg" alt="Coach Sharmz" style="max-width: 200px; border-radius: 50%; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
     </div>
+    <section id="child" class="tab-content active">
+      <h2>🌟 Young Leaders English Package</h2>
 
-    <div class="section bg-white">
-        <h2 class="text-3xl font-bold text-gray-800 mb-6">Experience & Education</h2>
-        <div class="resume-grid">
-            <div>
-                <h3 class="text-xl font-semibold text-gray-800 mb-2">Experience</h3>
-                <ul class="list-disc list-inside text-gray-600 space-y-2">
-                    <li><strong>IVY English (Insky.edu), 2017 - 2023</strong><br>Instructed over 100+ ESL learners of various ages and levels. Improved and simplified instruction methods for young learners aged 5-12. Taught advanced and conversational English to 50+ Korean nationals. Facilitated 4-to-1 online group classes for adults. Mentored 20+ ESL students for job and student admission interviews.</li>
-                    <li><strong>Itutor, 2016 - 2017</strong><br>Developed over 50 different course plans and resourceful materials for adult learners at basic and advanced levels. Taught advanced and business-level English to over 50 Taiwanese professionals. Assisted in editing 10+ business proposals and 20+ business presentations.</li>
-                    <li><strong>1on1tutorial.info, 2012 - 2017</strong><br>Provided 1-on-1 instruction for non-English speaking students. Facilitated at least five 1-on-1 classes daily.</li>
-                    <li><strong>DMA1on1, 2010 - 2012</strong><br>ESL Instructor, providing personalized language instruction.</li>
-                    <li><strong>Danalex Graphic Arts, 2008 - 2009</strong><br>Marketing Supervisor, handling outbound calls and website marketing.</li>
-                    <li><strong>Noble Trends Unbound, 2005 - 2008</strong><br>Customer Service (Outbound), managing sales calls for Time Magazine subscriptions.</li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="text-xl font-semibold text-gray-800 mb-2">Education</h3>
-                <ul class="list-disc list-inside text-gray-600 space-y-2">
-                    <li><strong>Bachelor of Science in Commerce</strong><br>University of the Cordilleras, 1995 - 2000</li>
-                    <li><strong>Political Science</strong><br>Saint Louis University, 1993</li>
-                </ul>
-                <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Skills</h3>
-                <ul class="list-disc list-inside text-gray-600 space-y-2">
-                    <li>Sales & Marketing Proficiency</li>
-                    <li>Customer Relationship Management</li>
-                    <li>Appointment Setting</li>
-                    <li>Cold Calling (Prospecting)</li>
-                    <li>Communication Skills</li>
-                    <li>Strategic Thinking</li>
-                </ul>
-                <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Contact</h3>
-                <ul class="list-disc list-inside text-gray-600 space-y-2">
-                    <li>Phone: +639174177489</li>
-                    <li>Email: sharmz_71@yahoo.com</li>
-                    <li>Location: Philippines</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+      <div class="section">
+        <h3>Introduction</h3>
+        <p>For Learners Aged 5 to 18 - Unlocking Advanced Expression & Confidence</p>
+        <p>At SAM 1on1, we don’t just teach English—we train young minds to express deeply, speak powerfully, and think globally. This package guides learners from basic sentences to dynamic communication, equipping them to discuss real-world topics and influential people.</p>
+      </div>
 
-    <div class="section">
-        <h2 class="text-3xl font-bold text-gray-800 mb-6">Introduction</h2>
-        <p class="text-lg text-gray-600">
-            At SAM 1on1, we don't just teach English—we train young minds to express deeply, speak powerfully, and think globally. Our program guides learners from basic sentences to dynamic communication, equipping them to discuss real-world topics and influential people.
-        </p>
-    </div>
-
-    <div class="section bg-white">
-        <h2 class="text-3xl font-bold text-gray-800 mb-6">Learning Goals</h2>
-        <p class="text-lg text-gray-600 mb-4">What Your Child Will Learn & Master:</p>
-        <ul class="list-disc list-inside text-gray-600 space-y-2">
-            <li><strong>Adjective Usage for Expressive Language:</strong> Students will learn to use descriptive words to paint vivid pictures and express emotions, opinions, and impressions. <br><em>Example: "The brave soldier faced a terrible storm."</em></li>
-            <li><strong>Verbs with Conviction:</strong> Upgrade from basic verbs (go, eat, like) to stronger, more expressive verbs (explore, admire, achieve).</li>
-            <li><strong>Adverb Accuracy:</strong> Master adverbs to add detail and flair to speech. <br><em>Example: "She answered quickly but kindly."</em></li>
-            <li><strong>Spontaneous Speaking Development:</strong> Through Q&A, debates, free-talking games, and roleplay, students build fluency and confidence without a script.</li>
+      <div class="section">
+        <h3>Learning Goals</h3>
+        <ul>
+          <li><strong>Adjective Usage:</strong> Paint vivid pictures with words and express emotions, opinions, and impressions.</li>
+          <li><strong>Verbs with Conviction:</strong> Move from basic verbs to expressive ones like "explore," "admire," and "achieve." </li>
+          <li><strong>Adverb Accuracy:</strong> Add detail and flair to speech. <em>Example: “She answered quickly but kindly.”</em></li>
+          <li><strong>Spontaneous Speaking:</strong> Through Q&A, debates, games, and roleplays, students build fluency and confidence.</li>
         </ul>
-    </div>
+      </div>
 
-    <div class="section highlight">
-        <h2 class="text-3xl font-bold text-gray-800 mb-4">Signature Skill: Discussing Great People</h2>
-        <p class="text-lg text-gray-600">
-            By the end of the program, students will confidently discuss inspiring figures like Nelson Mandela, Helen Keller, and Malala Yousafzai, understanding their lives, using rich vocabulary to describe their traits and impact, and practicing empathy and critical thinking in speech.
-        </p>
-        <p class="text-lg text-gray-600 italic mt-2">
-            Example: "Helen Keller was a courageous woman who proved that determination can overcome any obstacle. She inspired millions with her story."
-        </p>
-        <p class="text-lg text-gray-600 mt-4">
-            This is a key selling point for parents who want their children to become global citizens—able to speak with clarity, compassion, and pride.
-        </p>
-    </div>
-
-    <div class="section bg-white">
-        <h2 class="text-3xl font-bold text-gray-800 mb-6">Bonus Skills</h2>
-        <ul class="list-disc list-inside text-gray-600 space-y-2">
-            <li>Advanced conjunctions (although, however, as a result)</li>
-            <li>Transition phrases (on the other hand, in conclusion)</li>
-            <li>Sentence expansion & paraphrasing</li>
-            <li>Responding to abstract questions like "What does freedom mean to you?"</li>
+      <div class="section">
+        <h3>Signature Skill</h3>
+        <p>Discussing Great People and Global Role Models like Nelson Mandela, Helen Keller, and Malala Yousafzai:</p>
+        <ul>
+          <li>Understand their lives and achievements</li>
+          <li>Use rich vocabulary to describe traits and impact</li>
+          <li>Practice empathy and critical thinking in speech</li>
         </ul>
-    </div>
+        <p><em>Example: “Helen Keller was a courageous woman who proved that determination can overcome any obstacle.”</em></p>
+      </div>
 
-    <div class="section pricing-table">
-        <h2 class="text-3xl font-bold text-gray-800 mb-6">Course Packages & Pricing</h2>
-        <p class="text-lg text-gray-600 mb-4">For Upper Beginner to Advanced Young Learners</p>
+      <div class="section">
+        <h3>Bonus Skills</h3>
+        <ul>
+          <li>Advanced conjunctions (although, however, as a result)</li>
+          <li>Transition phrases (on the other hand, in conclusion)</li>
+          <li>Sentence expansion & paraphrasing</li>
+          <li>Responding to abstract questions like “What does freedom mean to you?”</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>Packages & Pricing</h3>
         <table>
-            <thead>
-                <tr>
-                    <th>No. of Classes</th>
-                    <th>Duration / Class</th>
-                    <th>Price / Class</th>
-                    <th>Total Price</th>
-                    <th>Max Completion</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>60</td>
-                    <td>25 minutes</td>
-                    <td>$7.00</td>
-                    <td>$420.00</td>
-                    <td>8 months</td>
-                </tr>
-                <tr>
-                    <td>60</td>
-                    <td>50 minutes</td>
-                    <td>$12.00</td>
-                    <td>$720.00</td>
-                    <td>8 months</td>
-                </tr>
-                <tr>
-                    <td>30</td>
-                    <td>25 minutes</td>
-                    <td>$8.00</td>
-                    <td>$240.00</td>
-                    <td>4 months</td>
-                </tr>
-                <tr>
-                    <td>30</td>
-                    <td>50 minutes</td>
-                    <td>$14.00</td>
-                    <td>$420.00</td>
-                    <td>4 months</td>
-                </tr>
-                <tr>
-                    <td>15</td>
-                    <td>25 minutes</td>
-                    <td>$8.50</td>
-                    <td>$127.50</td>
-                    <td>2 months</td>
-                </tr>
-                <tr class="highlight">
-                    <td>15 (Young Leaders)</td>
-                    <td>50 minutes</td>
-                    <td>$15.00</td>
-                    <td>$225.00</td>
-                    <td>2 months</td>
-                </tr>
-            </tbody>
+          <thead>
+            <tr>
+              <th>No. of Classes</th>
+              <th>Duration / Class</th>
+              <th>Price / Class</th>
+              <th>Total Price</th>
+              <th>Max Completion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>60</td><td>25 minutes</td><td>$7.00</td><td>$420.00</td><td>8 months</td></tr>
+            <tr><td>60</td><td>50 minutes</td><td>$12.00</td><td>$720.00</td><td>8 months</td></tr>
+            <tr><td>30</td><td>25 minutes</td><td>$8.00</td><td>$240.00</td><td>4 months</td></tr>
+            <tr><td>30</td><td>50 minutes</td><td>$14.00</td><td>$420.00</td><td>4 months</td></tr>
+            <tr><td>15</td><td>25 minutes</td><td>$8.50</td><td>$127.50</td><td>2 months</td></tr>
+            <tr><td>15</td><td>50 minutes</td><td>$15.00</td><td>$225.00</td><td>2 months</td></tr>
+          </tbody>
         </table>
-    </div>
+      </div>
 
-    <div class="section" id="how-it-works">
-        <h2 class="text-3xl font-bold text-gray-800 mb-6">How It Works</h2>
-        <ul class="list-disc list-inside text-gray-600 space-y-2">
-            <li><strong>Level-Appropriate Coaching:</strong> Tailored sessions for age and skill.</li>
-            <li><strong>One-on-One Attention:</strong> Personal guidance with no distractions.</li>
-            <li><strong>Playful for Kids, Powerful for Teens:</strong> Activities match age & interest.</li>
-            <li><strong>Critical Thinking Encouraged:</strong> Express opinions and ask questions.</li>
-            <li><strong>Motivational Topics:</strong> From superheroes to world heroes!</li>
+      <div class="section">
+        <h3>How the Program Works</h3>
+        <ul>
+          <li>Level-Appropriate Coaching: Tailored sessions by age and skill</li>
+          <li>One-on-One Attention: Personal guidance without distractions</li>
+          <li>Playful for Kids, Powerful for Teens: Age-appropriate activities</li>
+          <li>Critical Thinking Encouraged: Opinions, questions, expression</li>
+          <li>Motivational Topics: From superheroes to world heroes!</li>
         </ul>
-        <a href="#" class="cta-button mt-6">Get Started Today</a>
-    </div>
+      </div>
+    </section>
 
-    <div class="scroll-to-top" onclick="scrollToTop()">↑</div>
+    <section id="adult" class="tab-content">
+  <h2>💼 Adult Learners</h2>
+  <div class="section">
+    <p>At SAM 1on1, we believe learning English should be an exciting journey, not a chore. Mistakes are part of growth, and we embrace every learning experience with positivity!</p>
+  </div>
 
-    <script>
-        // Scroll-to-top button visibility
-        window.addEventListener('scroll', () => {
-            const button = document.querySelector('.scroll-to-top');
-            if (window.scrollY > 300) {
-                button.style.display = 'block';
-            } else {
-                button.style.display = 'none';
-            }
-        });
+  <div class="section">
+    <h3>Speak with Confidence</h3>
+    <ul>
+      <li>Master formal and informal conversations for everyday interactions, social gatherings, and professional settings.</li>
+      <li>Engage in free-talking practice to handle spontaneous discussions with ease.</li>
+    </ul>
+  </div>
 
-        // Smooth scroll to top
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
+  <div class="section">
+    <h3>Business English Mastery</h3>
+    <ul>
+      <li>Excel in business presentations and lead effective meetings.</li>
+      <li>Craft persuasive marketing pitches and manage professional business calls.</li>
+      <li>Confidently handle reservations for daily life needs and travel plans.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Parent Power-Up</h3>
+    <ul>
+      <li>Teach your children basic English effectively.</li>
+      <li>Help them improve pronunciation and grammar with structured guidance.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Real-Life Role-Playing</h3>
+    <ul>
+      <li>Practice real-world scenarios such as business negotiations, interviews, and daily arrangements.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Idioms & Prepositions Made Easy</h3>
+    <ul>
+      <li>Master common English idioms for a more natural speaking style.</li>
+      <li>Learn proper preposition usage in a simple and engaging way.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>How SAM 1on1 Works</h3>
+    <ul>
+      <li><strong>Personalized Sessions:</strong> One-on-one tailored coaching based on your English level, interests, and goals.</li>
+      <li><strong>Flexible Learning Plans:</strong> Choose a package that fits your schedule with clear timelines.</li>
+      <li><strong>Transparent Pricing:</strong> One price for all course types—whether business English, casual conversation, or idioms.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Packages & Pricing</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>No. of Classes</th>
+          <th>Duration / Class</th>
+          <th>Price / Class</th>
+          <th>Total Price</th>
+          <th>Max Completion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>60</td><td>25 minutes</td><td>$5.00</td><td>$300</td><td>Within 8 months</td></tr>
+        <tr><td>60</td><td>50 minutes</td><td>$10.00</td><td>$600</td><td>Within 8 months</td></tr>
+        <tr><td>30</td><td>25 minutes</td><td>$6.00</td><td>$180</td><td>Within 4 months</td></tr>
+        <tr><td>30</td><td>50 minutes</td><td>$12.00</td><td>$360</td><td>Within 4 months</td></tr>
+        <tr><td>15</td><td>25 minutes</td><td>$6.50</td><td>$97.50</td><td>Within 2 months</td></tr>
+        <tr><td>15</td><td>50 minutes</td><td>$13.00</td><td>$195.00</td><td>Within 2 months</td></tr>
+      </tbody>
+    </table>
+    <p>Flexible scheduling to match your availability.</p>
+    <p>All sessions are private, one-on-one, and customized to your needs.</p>
+  </div>
+
+  <div class="section">
+    <h3>Our Unwavering Focus: IELTS Speaking Excellence</h3>
+    <ul>
+      <li>Master formal and informal communication for all parts of the IELTS Speaking test.</li>
+      <li>Develop fluency and coherence through spontaneous free-talking practice.</li>
+      <li>Improve articulation, idea organization, and vocabulary for higher IELTS band scores.</li>
+      <li>Engage in focused role-playing exercises for common IELTS scenarios.</li>
+      <li>Refine pronunciation and apply advanced grammar structures with precision.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>How SAM 1on1 Works (IELTS Edition)</h3>
+    <ul>
+      <li><strong>Intensely Personalized:</strong> One-on-one coaching customized for your IELTS target score.</li>
+      <li><strong>Strategic & Flexible:</strong> Tailored scheduling to ensure effective preparation at your own pace.</li>
+      <li><strong>Premium Specialization:</strong> Expert guidance dedicated exclusively to IELTS Speaking success.</li>
+    </ul>
+  </div>
+</section>
+
+    <section class="contact">
+      <h2>📞 Contact Coach Sharmz</h2>
+      <p>Email: <a href="mailto:sharmz_71@yahoo.com">sharmz_71@yahoo.com</a></p>
+      <p>Phone: +63 917 417 7489</p>
+      <p>WhatsApp / WeChat icons coming soon!</p>
+      <p><em>I don’t bite—I correct gently and cheer like a coach with pom-poms and grammar flashcards.</em></p>
+    </section>
+  </main>
+
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      document.getElementById(tabId).classList.add('active');
+    }
+  </script>
 </body>
 </html>

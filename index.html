@@ -1,271 +1,987 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html class="no-js" lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coach Sharmz' ESL Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Nunito', sans-serif;
-      background-color: #fff;
-      color: #000;
-    }
-    header {
-      background-color: #E63946;
-      color: white;
-      padding: 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    nav button {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1rem;
-      margin: 0 1rem;
-      cursor: pointer;
-    }
-    .tab-content {
-      display: none;
-      padding: 2rem;
-    }
-    .tab-content.active {
-      display: block;
-    }
-    .section {
-      margin-bottom: 2rem;
-    }
-    .section h3 {
-      color: #E63946;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-    }
-    table, th, td {
-      border: 1px solid #ddd;
-    }
-    th, td {
-      padding: 0.5rem;
-      text-align: center;
-    }
-    .contact {
-      margin-top: 2rem;
-      background-color: #A8A8A8;
-      padding: 1rem;
-      color: white;
-    }
-  </style>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="author" content="smartit-source">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- title here -->
+    <title>ESL teacher</title>
+    <!-- Favicon and Touch Icons -->
+    <link rel="shortcut icon" href="assets/images/fav.png">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="assets/css/owl.theme.css">
+    <link rel="stylesheet" href="assets/css/owl.transitions.css">
+    <link rel="stylesheet" href="assets/css/meanmenu.min.css">
+    <link rel="stylesheet" href="assets/css/animated-headline.css">
+    <!--Theme custom css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!--Theme Responsive css-->
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
+
+<style>
+    /* Logo Area Styling */
+.coach-logo {
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.coach-logo h4 {
+    margin: 0;
+    font-weight: bold;
+    font-size: 18px;
+    color: #1a1a1a;
+    line-height: 1.2;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.coach-logo h4 span {
+    display: block;
+    font-size: 13px;
+    color: #f16f17;
+    text-transform: none;
+    letter-spacing: 0.5px;
+}
+
+/* Hover Effects */
+.coach-logo:hover {
+    transform: scale(1.05);
+}
+
+.coach-logo:hover h4 {
+    color: #ffffff; /* Blue effect on hover */
+}
+
+.coach-logo:hover h4 span {
+    color: #b41af1;
+}
+
+</style>
+
 <body>
-  <header>
-    <h1>Coach Sharmz' ESL Coaching</h1>
-    <nav>
-      <button onclick="showTab('child')">👶 Kids</button>
-      <button onclick="showTab('adult')">🧑 Adults</button>
-    </nav>
-  </header>
+    <!-- header area start here -->
+    <header class="header-area" id="sticky">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="logo-area">
+                        <a href="/" class="coach-logo">
+                            <h4>Coach Sharmz<br><span>ESL Coaching</span></h4>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="menu-area text-right">
+                        <nav class="main-menu">
+                            <ul>
+                                <li class="active"><a href=''><span class="flaticon-home-page"></span>home</a></li>
+                                <li><a href="#goals"><span class="flaticon-resume"></span> Goals</a></li>
+                                <li><a href='#services'><span class="flaticon-settings"></span>Services</a></li>
+                                <li><a href='#rates'><span class="flaticon-library"></span>Rates</a></li>
+                                <li><a href="#contact-footer" class="scroll-to-contact"><span class="flaticon-chat"></span>Contact</a></li>
 
-  
-    <div style="text-align: center; margin-top: 2rem;">
-      <img src="me.jpg" alt="Coach Sharmz" style="max-width: 200px; border-radius: 50%; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header area start here -->
+    <!-- banner area start here -->
+    <div class="banner-area" style="padding: 60px 0; background-color: #f5f8ff;">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Text Content -->
+                <div class="col-md-6">
+                    <div class="banner-text" style="line-height: 1.7; font-family: 'Segoe UI', sans-serif; color: #2c2c2c;">
+                        <span style="font-size: 1.3rem; font-weight: 600; color: #ff7300; display: inline-block; margin-bottom: 10px;">
+                            🌟 Young Leaders English Package
+                        </span>
+                        
+                        <h1 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 15px;">
+                            For Learners Aged 5 to 18
+                        </h1>
+                        
+                        <h4 class="cd-headline letters rotate-3" style="font-size: 1.4rem; margin-bottom: 20px; color: #444;">
+                            Unlocking 
+                            <span class="cd-words-wrapper" style="font-weight: 600; color: #f27c1d;">
+                                <b class="is-visible">Advanced Expression</b>
+                                <b>Confidence</b>
+                                <b>Global Thinking</b>
+                            </span>
+                        </h4>
+                        
+                        <p style="font-size: 1.05rem; color: #555; max-width: 600px;">
+                            At <strong style="color: #000;">SAM 1on1</strong>, we don’t just teach English—we train young minds to express deeply, 
+                            speak powerfully, and think globally. This package guides learners from basic sentences to dynamic 
+                            communication, equipping them to discuss real-world topics and influential people with clarity and confidence.
+                        </p>
+                    </div>
+                </div>
+    
+                
+            </div>
+        </div>
     </div>
-    <section id="child" class="tab-content active">
-      <h2>🌟 Young Leaders English Package</h2>
+    <style>
+        
+    </style>
 
-      <div class="section">
-        <h3>Introduction</h3>
-        <p>For Learners Aged 5 to 18 - Unlocking Advanced Expression & Confidence</p>
-        <p>At SAM 1on1, we don’t just teach English—we train young minds to express deeply, speak powerfully, and think globally. This package guides learners from basic sentences to dynamic communication, equipping them to discuss real-world topics and influential people.</p>
+
+    
+    <!-- banner area start here -->
+    <!-- about-area start here -->
+    <div class="about-area section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="about-img">
+                        <img src="assets/images/about/about-us.jpg" alt="about">
+                    </div>
+                </div>
+                <style>
+                    /* Section title hover effect */
+                    .section-title h2 {
+                        transition: all 0.4s ease-in-out;
+                        display: inline-block;
+                    }
+                
+                    .section-title h2:hover {
+                        color: #ff4d6d;
+                        letter-spacing: 1.5px;
+                        text-shadow: 0 0 10px rgba(255, 77, 109, 0.6);
+                    }
+                
+                    /* Learning Goals and Signature Skill Styling */
+                    .learning-info {
+                        margin-top: 30px;
+                        padding: 25px;
+                        background-color: #f7f9fc;
+                        border-left: 5px solid #ff4d6d;
+                        border-radius: 10px;
+                        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+                        font-family: 'Segoe UI', sans-serif;
+                    }
+                
+                    .learning-info h3 {
+                        font-size: 1.5rem;
+                        color: #1d3557;
+                        margin-bottom: 15px;
+                    }
+                
+                    .learning-info ul {
+                        padding-left: 20px;
+                        margin-bottom: 15px;
+                        line-height: 1.6;
+                    }
+                
+                    .learning-info ul li {
+                        margin-bottom: 8px;
+                    }
+                
+                    .learning-info p {
+                        margin-bottom: 10px;
+                    }
+                </style>
+                <div class="col-md-6">
+                    <div class="section-title mt-35">
+                        <h2>Hey ! <br /> This is my mission <span>and my goals.</span></h2>
+                    </div>
+                    <div class="about-info">
+                        
+                        
+                
+                        <!-- 🔥 Learning Goals and Signature Skill Section -->
+                        <div class="learning-info" id="goals">
+                            <h3>🎯 Learning Goals</h3>
+                            <ul>
+                                <li><strong>Adjective Usage:</strong> Paint vivid pictures with words and express emotions, opinions, and impressions.</li>
+                                <li><strong>Verbs with Conviction:</strong> Move from basic verbs to expressive ones like “explore,” “admire,” and “achieve.”</li>
+                                <li><strong>Adverb Accuracy:</strong> Add detail and flair to speech. Example: “She answered quickly but kindly.”</li>
+                                <li><strong>Spontaneous Speaking:</strong> Through Q&A, debates, games, and roleplays, students build fluency and confidence.</li>
+                            </ul>
+                        
+                            <h3>🌟 Signature Skill</h3>
+                            <p><strong>Discussing Great People and Global Role Models</strong> like Nelson Mandela, Helen Keller, and Malala Yousafzai:</p>
+                            <ul>
+                                <li>Understand their lives and achievements</li>
+                                <li>Use rich vocabulary to describe traits and impact</li>
+                                <li>Practice empathy and critical thinking in speech</li>
+                            </ul>
+                            <p style="font-style: italic; color: #555;">
+                                Example: “Helen Keller was a courageous woman who proved that determination can overcome any obstacle.”
+                            </p>
+                        </div>
+                
+                        <div class="about-btn" style="margin-top: 20px;">
+                            <a href="#" class="primary-btn">Contact now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about-area start here -->
+    <!-- fun fact area start here	 -->
+    <style>
+        .bonus-skills-area {
+            background-color: #f4f9fd;
+            padding: 60px 0;
+        }
+    
+        .bonus-skill {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 25px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+    
+        .bonus-skill:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            background-color: #eaf6ff;
+        }
+    
+        .bonus-skill i {
+            font-size: 2rem;
+            color: #ff4d6d;
+            margin-bottom: 15px;
+        }
+    
+        .bonus-skill h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #1d3557;
+        }
+    
+        .bonus-skill p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.5;
+        }
+    </style>
+    
+    <div class="bonus-skills-area section">
+        <div class="container">
+            <div class="row text-center mb-4">
+                <div class="col-12">
+                    <h2 style="color: #1d3557;">🎓 Bonus Skills</h2>
+                    <p style="color: #6c757d;">Empowering learners to articulate deeply and think critically</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="bonus-skill">
+                        <i class="fas fa-random"></i>
+                        <h4>Advanced Conjunctions</h4>
+                        <p>Use words like <strong>although, however, as a result</strong> to build logical flow in complex ideas.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="bonus-skill">
+                        <i class="fas fa-exchange-alt"></i>
+                        <h4>Transition Phrases</h4>
+                        <p>Bridge ideas smoothly using phrases like <strong>on the other hand</strong> and <strong>in conclusion</strong>.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="bonus-skill">
+                        <i class="fas fa-expand-alt"></i>
+                        <h4>Sentence Expansion</h4>
+                        <p>Learn how to <strong>paraphrase</strong> and stretch ideas with depth and clarity.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="bonus-skill">
+                        <i class="fas fa-comments"></i>
+                        <h4>Abstract Responses</h4>
+                        <p>Answer deep questions like <em>“What does freedom mean to you?”</em> with confidence and creativity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- fun fact area end here	 -->
+    <!-- service area start here	 -->
+    <div class="service-area section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="section-title mt-35">
+                        <h2>Wonderful! The <span>Services I Provide </span></h2>
+                    </div>
+                    <div class="service-info">
+                        <div class="service-content">
+                            <h3>Ignite Confidence. Speak with Purpose.</h3>
+                            <p>Welcome to **Coach Sharmz' Young Leaders English Coaching**—where English is more than grammar and vocabulary. It’s a gateway to confidence, curiosity, and global thinking. Perfect for learners aged 5 to 18, this program transforms quiet speakers into expressive communicators through powerful coaching and real-world conversations.</p>
+                        </div>
+                    
+                        <p>Every session is a step toward fluency—through storytelling, roleplays, spontaneous Q&As, and thought-provoking topics. Learners don’t just practice English—they experience it, using words that describe heroes, share ideas, and spark meaningful dialogue.</p>
+                    
+                        <p>From adjectives that paint emotion to verbs that express action, students develop the skills to speak clearly, think critically, and lead with their voice. Whether describing Malala’s bravery or explaining what freedom means, they learn to speak from the heart—accurately and confidently.</p>
+                    
+                        <p>Coach Sharmz brings patience, energy, and a coach’s cheer to every class. With gentle corrections and joyful encouragement, students feel safe to grow, explore, and succeed.</p>
+                    
+                        <p><em>In this space, young minds don’t just learn English—they become fearless communicators ready to thrive in a global world.</em></p>
+                    </div>
+                    
+                </div>
+                <div class="col-md-6">
+                    <div class="service-list">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="single-service text-center mb-60">
+                                    <div class="service-icon">
+                                        <i class="fas fa-comments"></i>
+                                    </div>
+                                    <h4>Fluency Building</h4>
+                                    <div class="service-content">
+                                        <p>Engaging Q&A, games, and debates boost spontaneous speaking and student confidence.</p>
+                                    </div>
+                                </div>
+                                <div class="single-service text-center">
+                                    <div class="service-icon">
+                                        <i class="fas fa-book-open"></i>
+                                    </div>
+                                    <h4>Vocabulary Expansion</h4>
+                                    <div class="service-content">
+                                        <p>Students master expressive words that empower them to speak with clarity and emotion.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="single-service text-center mb-60 mt-50">
+                                    <div class="service-icon">
+                                        <i class="fas fa-brain"></i>
+                                    </div>
+                                    <h4>Critical Thinking</h4>
+                                    <div class="service-content">
+                                        <p>Learners explore real-world topics and abstract questions that challenge and inspire their ideas.</p>
+                                    </div>
+                                </div>
+                                <div class="single-service text-center">
+                                    <div class="service-icon">
+                                        <i class="fas fa-globe-americas"></i>
+                                    </div>
+                                    <h4>Global Role Models</h4>
+                                    <div class="service-content">
+                                        <p>Learn to speak about inspirational figures while developing empathy and strong communication.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- service area end here	 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- freelancer avaliable area start here		 -->
+    <div id="services" class="freelancer-avaliable-area section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="freelancer-content">
+                        <div class="section-title mt-35">
+                            <h2>I’m Available <br /> for ESL Teaching</h2>
+                        </div>
+                        <p>Come, let's learn and grow together. Please contact us!</p>
+                    
+                        <!-- How the Program Works Section -->
+                        <div class="program-details mt-4">
+                            <h4 style="margin-bottom: 15px; font-weight: bold; color: #333;">📘 How the Program Works</h4>
+                            <ul style="list-style: none; padding: 0; font-size: 16px; color: #444;">
+                                <li style="margin-bottom: 10px;"><i class="fas fa-user-graduate" style="color: #4a90e2; margin-right: 10px;"></i>Level-Appropriate Coaching: Tailored sessions by age and skill</li>
+                                <li style="margin-bottom: 10px;"><i class="fas fa-user-check" style="color: #4a90e2; margin-right: 10px;"></i>One-on-One Attention: Personal guidance without distractions</li>
+                                <li style="margin-bottom: 10px;"><i class="fas fa-child" style="color: #4a90e2; margin-right: 10px;"></i>Playful for Kids, Powerful for Teens: Age-appropriate activities</li>
+                                <li style="margin-bottom: 10px;"><i class="fas fa-lightbulb" style="color: #4a90e2; margin-right: 10px;"></i>Critical Thinking Encouraged: Opinions, questions, expression</li>
+                                <li style="margin-bottom: 10px;"><i class="fas fa-star" style="color: #4a90e2; margin-right: 10px;"></i>Motivational Topics: From superheroes to world heroes!</li>
+                            </ul>
+                        </div>
+                    
+                        <div class="hire-btn mt-3">
+                            <a href="#" class="primary-btn">Hire Me</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- freelancer avaliable area start here		 -->
+     <!-- Rates Section -->
+<section>
+    <!-- Filter & Rates Section -->
+    <div id="rates" class="section" style="padding: 60px 0; text-align: center; background-color: #f9f9f9;">
+        <h2 style="margin-bottom: 20px;">Packages & Pricing</h2>
+      
+        <div style="margin-bottom: 20px;">
+          <button onclick="showTable('child')" class="filter-btn">Child Packages</button>
+          <button onclick="showTable('adult')" class="filter-btn">Adult Packages</button>
+        </div>
+      
+        <!-- Child Table -->
+        <div id="childTable" class="pricing-table anime-style">
+          <table>
+            <thead>
+              <tr>
+                <th>No. of Classes</th>
+                <th>Duration / Class</th>
+                <th>Price / Class</th>
+                <th>Total Price</th>
+                <th>Max Completion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>60</td><td>25 minutes</td><td>$7.00</td><td>$420.00</td><td>8 months</td></tr>
+              <tr><td>60</td><td>50 minutes</td><td>$12.00</td><td>$720.00</td><td>8 months</td></tr>
+              <tr><td>30</td><td>25 minutes</td><td>$8.00</td><td>$240.00</td><td>4 months</td></tr>
+              <tr><td>30</td><td>50 minutes</td><td>$14.00</td><td>$420.00</td><td>4 months</td></tr>
+              <tr><td>15</td><td>25 minutes</td><td>$8.50</td><td>$127.50</td><td>2 months</td></tr>
+              <tr><td>15</td><td>50 minutes</td><td>$15.00</td><td>$225.00</td><td>2 months</td></tr>
+            </tbody>
+          </table>
+        </div>
+      
+        <!-- Adult Table -->
+        <div id="adultTable" class="pricing-table anime-style" style="display: none;">
+          <table>
+            <thead>
+              <tr>
+                <th class="gif-hover" data-gif="./assets/gif/goku.gif">No. of Classes</th>
+                <th class="gif-hover" data-gif="./assets/gif/Hungry Naruto Shippuden GIF.gif">Duration / Class</th>
+                <th class="gif-hover" data-gif="./assets/gif/Kaguya sama.gif">Price / Class</th>
+                <th class="gif-hover" data-gif="./assets/gif/kimi no nawa.gif">Total Price</th>
+                <th class="gif-hover" data-gif="./assets/gif/spirited away.gif">Max Completion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>60</td><td>25 minutes</td><td>$6.00</td><td>$300</td><td>Within 8 months</td></tr>
+              <tr><td>60</td><td>50 minutes</td><td>$10.00</td><td>$600</td><td>Within 8 months</td></tr>
+              <tr><td>30</td><td>25 minutes</td><td>$6.00</td><td>$180</td><td>Within 4 months</td></tr>
+              <tr><td>30</td><td>50 minutes</td><td>$12.00</td><td>$360</td><td>Within 4 months</td></tr>
+              <tr><td>15</td><td>25 minutes</td><td>$6.50</td><td>$97.50</td><td>Within 2 months</td></tr>
+              <tr><td>15</td><td>50 minutes</td><td>$13.00</td><td>$195.00</td><td>Within 2 months</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
+      
+      <!-- Floating GIF -->
+      <img id="hoverGif" src="" alt="Anime" style="position: absolute; display: none; width: 100px; z-index: 10;">
+  <style>
+   .filter-btn {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
 
-      <div class="section">
-        <h3>Learning Goals</h3>
-        <ul>
-          <li><strong>Adjective Usage:</strong> Paint vivid pictures with words and express emotions, opinions, and impressions.</li>
-          <li><strong>Verbs with Conviction:</strong> Move from basic verbs to expressive ones like "explore," "admire," and "achieve." </li>
-          <li><strong>Adverb Accuracy:</strong> Add detail and flair to speech. <em>Example: “She answered quickly but kindly.”</em></li>
-          <li><strong>Spontaneous Speaking:</strong> Through Q&A, debates, games, and roleplays, students build fluency and confidence.</li>
-        </ul>
-      </div>
+.filter-btn:hover {
+  background-color: #0056b3;
+}
 
-      <div class="section">
-        <h3>Signature Skill</h3>
-        <p>Discussing Great People and Global Role Models like Nelson Mandela, Helen Keller, and Malala Yousafzai:</p>
-        <ul>
-          <li>Understand their lives and achievements</li>
-          <li>Use rich vocabulary to describe traits and impact</li>
-          <li>Practice empathy and critical thinking in speech</li>
-        </ul>
-        <p><em>Example: “Helen Keller was a courageous woman who proved that determination can overcome any obstacle.”</em></p>
-      </div>
+.pricing-table table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+}
 
-      <div class="section">
-        <h3>Bonus Skills</h3>
-        <ul>
-          <li>Advanced conjunctions (although, however, as a result)</li>
-          <li>Transition phrases (on the other hand, in conclusion)</li>
-          <li>Sentence expansion & paraphrasing</li>
-          <li>Responding to abstract questions like “What does freedom mean to you?”</li>
-        </ul>
-      </div>
+.pricing-table th,
+.pricing-table td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: center;
+}
 
-      <div class="section">
-        <h3>Packages & Pricing</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>No. of Classes</th>
-              <th>Duration / Class</th>
-              <th>Price / Class</th>
-              <th>Total Price</th>
-              <th>Max Completion</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>60</td><td>25 minutes</td><td>$7.00</td><td>$420.00</td><td>8 months</td></tr>
-            <tr><td>60</td><td>50 minutes</td><td>$12.00</td><td>$720.00</td><td>8 months</td></tr>
-            <tr><td>30</td><td>25 minutes</td><td>$8.00</td><td>$240.00</td><td>4 months</td></tr>
-            <tr><td>30</td><td>50 minutes</td><td>$14.00</td><td>$420.00</td><td>4 months</td></tr>
-            <tr><td>15</td><td>25 minutes</td><td>$8.50</td><td>$127.50</td><td>2 months</td></tr>
-            <tr><td>15</td><td>50 minutes</td><td>$15.00</td><td>$225.00</td><td>2 months</td></tr>
-          </tbody>
-        </table>
-      </div>
+.pricing-table thead {
+  background-color: #007bff;
+  color: white;
+}
 
-      <div class="section">
-        <h3>How the Program Works</h3>
-        <ul>
-          <li>Level-Appropriate Coaching: Tailored sessions by age and skill</li>
-          <li>One-on-One Attention: Personal guidance without distractions</li>
-          <li>Playful for Kids, Powerful for Teens: Age-appropriate activities</li>
-          <li>Critical Thinking Encouraged: Opinions, questions, expression</li>
-          <li>Motivational Topics: From superheroes to world heroes!</li>
-        </ul>
-      </div>
-    </section>
+.anime-style table {
+  animation: floatTable 1s ease-in-out infinite alternate;
+  background: linear-gradient(to bottom right, #ffe0e6, #e0f7ff);
+  box-shadow: 0 0 20px rgba(255, 0, 132, 0.3);
+  border-radius: 10px;
+}
 
-    <section id="adult" class="tab-content">
-  <h2>💼 Adult Learners</h2>
-  <div class="section">
-    <p>At SAM 1on1, we believe learning English should be an exciting journey, not a chore. Mistakes are part of growth, and we embrace every learning experience with positivity!</p>
-  </div>
+@keyframes floatTable {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-5px); }
+}
+  </style>
 
-  <div class="section">
-    <h3>Speak with Confidence</h3>
-    <ul>
-      <li>Master formal and informal conversations for everyday interactions, social gatherings, and professional settings.</li>
-      <li>Engage in free-talking practice to handle spontaneous discussions with ease.</li>
-    </ul>
-  </div>
+<script>
+  function showTable(type) {
+    document.getElementById("childTable").style.display = type === "child" ? "block" : "none";
+    document.getElementById("adultTable").style.display = type === "adult" ? "block" : "none";
+  }
 
-  <div class="section">
-    <h3>Business English Mastery</h3>
-    <ul>
-      <li>Excel in business presentations and lead effective meetings.</li>
-      <li>Craft persuasive marketing pitches and manage professional business calls.</li>
-      <li>Confidently handle reservations for daily life needs and travel plans.</li>
-    </ul>
-  </div>
+  const hoverGif = document.getElementById('hoverGif');
 
-  <div class="section">
-    <h3>Parent Power-Up</h3>
-    <ul>
-      <li>Teach your children basic English effectively.</li>
-      <li>Help them improve pronunciation and grammar with structured guidance.</li>
-    </ul>
-  </div>
+  document.querySelectorAll('.gif-hover').forEach(th => {
+    th.addEventListener('mouseenter', e => {
+      const gifSrc = e.target.getAttribute('data-gif');
+      const rect = e.target.getBoundingClientRect();
 
-  <div class="section">
-    <h3>Real-Life Role-Playing</h3>
-    <ul>
-      <li>Practice real-world scenarios such as business negotiations, interviews, and daily arrangements.</li>
-    </ul>
-  </div>
+      hoverGif.src = gifSrc;
+      hoverGif.style.left = `${rect.left + rect.width / 2 - 50}px`; // center above cell
+      hoverGif.style.top = `${rect.top - 110 + window.scrollY}px`;  // hover above
+      hoverGif.style.display = 'block';
+    });
 
-  <div class="section">
-    <h3>Idioms & Prepositions Made Easy</h3>
-    <ul>
-      <li>Master common English idioms for a more natural speaking style.</li>
-      <li>Learn proper preposition usage in a simple and engaging way.</li>
-    </ul>
-  </div>
+    th.addEventListener('mouseleave', () => {
+      hoverGif.style.display = 'none';
+    });
+  });
+</script>
 
-  <div class="section">
-    <h3>How SAM 1on1 Works</h3>
-    <ul>
-      <li><strong>Personalized Sessions:</strong> One-on-one tailored coaching based on your English level, interests, and goals.</li>
-      <li><strong>Flexible Learning Plans:</strong> Choose a package that fits your schedule with clear timelines.</li>
-      <li><strong>Transparent Pricing:</strong> One price for all course types—whether business English, casual conversation, or idioms.</li>
-    </ul>
-  </div>
 
-  <div class="section">
-    <h3>Packages & Pricing</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>No. of Classes</th>
-          <th>Duration / Class</th>
-          <th>Price / Class</th>
-          <th>Total Price</th>
-          <th>Max Completion</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>60</td><td>25 minutes</td><td>$5.00</td><td>$300</td><td>Within 8 months</td></tr>
-        <tr><td>60</td><td>50 minutes</td><td>$10.00</td><td>$600</td><td>Within 8 months</td></tr>
-        <tr><td>30</td><td>25 minutes</td><td>$6.00</td><td>$180</td><td>Within 4 months</td></tr>
-        <tr><td>30</td><td>50 minutes</td><td>$12.00</td><td>$360</td><td>Within 4 months</td></tr>
-        <tr><td>15</td><td>25 minutes</td><td>$6.50</td><td>$97.50</td><td>Within 2 months</td></tr>
-        <tr><td>15</td><td>50 minutes</td><td>$13.00</td><td>$195.00</td><td>Within 2 months</td></tr>
-      </tbody>
-    </table>
-    <p>Flexible scheduling to match your availability.</p>
-    <p>All sessions are private, one-on-one, and customized to your needs.</p>
-  </div>
 
-  <div class="section">
-    <h3>Our Unwavering Focus: IELTS Speaking Excellence</h3>
-    <ul>
-      <li>Master formal and informal communication for all parts of the IELTS Speaking test.</li>
-      <li>Develop fluency and coherence through spontaneous free-talking practice.</li>
-      <li>Improve articulation, idea organization, and vocabulary for higher IELTS band scores.</li>
-      <li>Engage in focused role-playing exercises for common IELTS scenarios.</li>
-      <li>Refine pronunciation and apply advanced grammar structures with precision.</li>
-    </ul>
-  </div>
+</section>>
 
-  <div class="section">
-    <h3>How SAM 1on1 Works (IELTS Edition)</h3>
-    <ul>
-      <li><strong>Intensely Personalized:</strong> One-on-one coaching customized for your IELTS target score.</li>
-      <li><strong>Strategic & Flexible:</strong> Tailored scheduling to ensure effective preparation at your own pace.</li>
-      <li><strong>Premium Specialization:</strong> Expert guidance dedicated exclusively to IELTS Speaking success.</li>
-    </ul>
-  </div>
-</section>
+                <!--
+    
 
-    <section class="contact">
-      <h2>📞 Contact Coach Sharmz</h2>
-      <p>Email: <a href="mailto:sharmz_71@yahoo.com">sharmz_71@yahoo.com</a></p>
-      <p>Phone: +63 917 417 7489</p>
-      <p>WhatsApp / WeChat icons coming soon!</p>
-      <p><em>I don’t bite—I correct gently and cheer like a coach with pom-poms and grammar flashcards.</em></p>
-    </section>
-  </main>
+    <div class="portfolio-area  section" id="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="section-title mt-35">
+                        <h2>Quility Work ! <br> <span>Recently I have Complete</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="filtering-button">
+                            <a class="active" data-filter="*"> All Work</a>
+                            <a data-filter=".cat1">Animation</a>
+                            <a data-filter=".cat2">Design</a>
+                            <a data-filter=".cat3">Illustration</a>
+                            <a data-filter=".cat4">Music</a>
+                            <a data-filter=".cat5">Photography</a>
+                            <a data-filter=".cat6">Videos</a>
+                            <a data-filter=".cat7"> Print Design </a>
+                            <a data-filter=".cat8">Illustration</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid row">
+                    <div class="grid-item col-sm-6 col-md-4 col-xs-12 cat1 cat3 cat4 cat8 acurate">
+                        <div class="single-portfolio">
+                            <div class="images">
+                                <a href='/portfolio'><img src="assets/images/portfolio/1.jpg" alt="portfolio"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-item col-sm-6 col-md-4 col-xs-12 cat6 cat2 cat8 cat3 acurate">
+                        <div class="single-portfolio">
+                            <div class="images">
+                                <a href='/portfolio'><img src="assets/images/portfolio/2.jpg" alt="portfolio"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-item col-sm-6 col-md-4 col-xs-12 cat1 cat7 cat8 cat2 acurate">
+                        <div class="single-portfolio">
+                            <div class="images">
+                                <a href='/portfolio'><img src="assets/images/portfolio/3.jpg" alt="portfolio"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-item col-sm-6 col-md-4 col-xs-12 cat3 cat6 cat5  cat7 acurate">
+                        <div class="single-portfolio">
+                            <div class="images">
+                                <a href='/portfolio'><img src="assets/images/portfolio/4.jpg" alt="portfolio"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-item col-sm-6 col-md-4 col-xs-12 cat4 cat3  cat6 acurate">
+                        <div class="single-portfolio">
+                            <div class="images">
+                                <a href='/portfolio'><img src="assets/images/portfolio/5.jpg" alt="portfolio"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-item col-sm-6 col-md-4 col-xs-12 cat4 cat3 cat5 cat8 acurate">
+                        <div class="single-portfolio">
+                            <div class="images">
+                                <a href='/portfolio'><img src="assets/images/portfolio/6.jpg" alt="portfolio"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="load-more-btn text-center">
+                        <a class='primary-btn' href='/portfolio'>See all Work</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+-->
+    
+    <!-- freelancer avaliable area start here		 -->
 
-  <script>
-    function showTab(tabId) {
-      document.querySelectorAll('.tab-content').forEach(tab => {
-        tab.classList.remove('active');
-      });
-      document.getElementById(tabId).classList.add('active');
-    }
-  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- happy clint area start here 
+    <div class="happy-clint-area section-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="section-title mt-35">
+                        <h2>What <br /> Happy Client Say ?</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="clint-img">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-12">
+                                <a href="#" class="testimonial-one"><img src="assets/images/testimonial/1.png" alt="testimonail"></a>
+                            </div>
+                            <div class="col-sm-6 col-xs-12 text-right">
+                                <a href="#" class="testimonial-two "><img src="assets/images/testimonial/2.png" alt="testimonail"></a>
+                            </div>
+                            <div class="col-sm-12 col-xs-12 text-center">
+                                <a href="#" class="testimonial-three"><img src="assets/images/testimonial/3.png" alt="testimonail"></a>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <a href="#" class="testimonial-four"><img src="assets/images/testimonial/4.png" alt="testimonail"></a>
+                            </div>
+                            <div class="col-sm-6 col-xs-12 text-right">
+                                <a href="#" class="testimonial-five"><img src="assets/images/testimonial/5.png" alt="testimonail"></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="testimonial-slide">
+                        <div class="single-testimonial text-center">
+                            <div class="quote-icon">
+                                <span class="fa fa-quote-left"></span>
+                            </div>
+                            <div class="clint-name">
+                                <h3>Jhon Smith</h3>
+                                <h4>Creative Designer</h4>
+                            </div>
+                            <div class="clint-say">
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                            </div>
+                            <div class="clint-review">
+                                <ul>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="single-testimonial text-center">
+                            <div class="quote-icon">
+                                <span class="fa fa-quote-left"></span>
+                            </div>
+                            <div class="clint-name">
+                                <h3>Jhon Smith</h3>
+                                <h4>Creative Designer</h4>
+                            </div>
+                            <div class="clint-say">
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                            </div>
+                            <div class="clint-review">
+                                <ul>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="single-testimonial text-center">
+                            <div class="quote-icon">
+                                <span class="fa fa-quote-left"></span>
+                            </div>
+                            <div class="clint-name">
+                                <h3>Jhon Smith</h3>
+                                <h4>Creative Designer</h4>
+                            </div>
+                            <div class="clint-say">
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                            </div>
+                            <div class="clint-review">
+                                <ul>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="single-testimonial text-center">
+                            <div class="quote-icon">
+                                <span class="fa fa-quote-left"></span>
+                            </div>
+                            <div class="clint-name">
+                                <h3>Jhon Smith</h3>
+                                <h4>Creative Designer</h4>
+                            </div>
+                            <div class="clint-say">
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                            </div>
+                            <div class="clint-review">
+                                <ul>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- footer area start here -->
+    <footer class="footer-area" id="contact-footer">
+        <div class="footer-top section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+                        <div class="footer-top-contet text-center">
+                           
+                            <p style="font-style: italic;">
+                                Learning English is fun—especially when your coach has pom-poms and grammar flashcards! 💡🎉
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Custom Contact Info for Coach Sharmz -->
+                <div class="row">
+                    <!-- Contact Info -->
+                    <div class="col-md-4 col-md-offset-2 text-center">
+                        <div class="single-address">
+                            <div class="address-bar-icon">
+                                <span class="flaticon-telephone"></span>
+                            </div>
+                            <div class="address-info">
+                                <h4>📞 Contact Coach Sharmz</h4>
+                                <p>Email: <a href="mailto:sharmz_71@yahoo.com">sharmz_71@yahoo.com</a></p>
+                                <p>Phone/Whatsapp: <a href="tel:+639174177489">+63 917 417 7489</a></p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- WhatsApp / WeChat Info -->
+                    <div class="col-md-4 text-center">
+                        <div class="single-address">
+                            <div class="address-bar-icon">
+                                <span class="flaticon-chat-1"></span>
+                            </div>
+                            <div class="address-info">
+                                <p><strong>WhatsApp / WeChat</strong></p>
+                                <p>Icons coming soon! 💬📱</p>
+                                <p style="margin-top: 10px; font-style: italic;">
+                                    I don’t bite—I correct gently and cheer like a coach! 🥳📘
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- New Row: Translate Instruction -->
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col-md-8 col-md-offset-2 text-center">
+                        <div class="single-address">
+                            <div class="address-bar-icon">
+                                <span class="flaticon-world"></span>
+                            </div>
+                            <div class="address-info" id="translate-box">
+                                <h4 id="translate-title">🌐 Translate This Website</h4>
+                                <p id="translate-desc">
+                                    If you want to translate this website to another language (e.g., Chinese or Turkish), use your browser’s built-in translate feature.
+                                </p>
+                
+                                <p><strong id="how-to-title">How to translate:</strong></p>
+                                <ol id="translate-steps" style="text-align: left; display: inline-block;">
+                                    <li>Right-click anywhere on the page.</li>
+                                    <li>Select <strong>“Translate to English”</strong> or your preferred language.</li>
+                                    <li>If you don't see it, look for a <strong>Translate icon</strong> in the address bar (🌐) and click it.</li>
+                                </ol>
+                
+                                <!-- Language Switch Buttons -->
+                                <div style="margin: 20px 0;">
+                                    <button onclick="setLang('en')" class="btn btn-default" style="margin: 5px;">🇺🇸 English</button>
+                                    <button onclick="setLang('zh')" class="btn btn-default" style="margin: 5px;">🇨🇳 中文</button>
+                                    <button onclick="setLang('tr')" class="btn btn-default" style="margin: 5px;">🇹🇷 Türkçe</button>
+                                </div>
+                
+                                <!-- Translation Image -->
+                                <img src="./assets/images/translation option.png" alt="How to translate page in browser"
+                                    style="max-width: 100%; height: auto; margin-top: 15px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Language Switch Script -->
+                <script>
+                    function setLang(lang) {
+                        const translations = {
+                            en: {
+                                title: "🌐 Translate This Website",
+                                desc: "If you want to translate this website to another language (e.g., Chinese or Turkish), use your browser’s built-in translate feature.",
+                                howto: "How to translate:",
+                                steps: `
+                                    <li>Right-click anywhere on the page.</li>
+                                    <li>Select <strong>“Translate to English”</strong> or your preferred language.</li>
+                                    <li>If you don't see it, look for a <strong>Translate icon</strong> in the address bar (🌐) and click it.</li>
+                                `
+                            },
+                            zh: {
+                                title: "🌐 翻译此网站",
+                                desc: "如果您想将本网站翻译成其他语言（例如，中文或土耳其语），请使用浏览器的内置翻译功能。",
+                                howto: "如何翻译：",
+                                steps: `
+                                    <li>右键单击页面上的任意位置。</li>
+                                    <li>选择“翻译成英语”或您的首选语言。</li>
+                                    <li>如果您没有看到它，请在地址栏 （🌐） 中查找 Translate 图标并单击它。</li>
+                                `
+                            },
+                            tr: {
+                                title: "🌐 Bu Web Sitesini Çevir",
+                                desc: "Bu web sitesini başka bir dile (örneğin Çince veya Türkçe) çevirmek istiyorsanız, tarayıcınızın yerleşik çeviri özelliğini kullanın.",
+                                howto: "Nasıl tercüme edilir:",
+                                steps: `
+                                    <li>Sayfada herhangi bir yeri sağ tıklatın.</li>
+                                    <li>"İngilizce'ye Çevir"i veya tercih ettiğiniz dili seçin.</li>
+                                    <li>Görmüyorsanız, adres çubuğunda (🌐) bir Çevir simgesi arayın ve tıklayın.</li>
+                                `
+                            }
+                        };
+                
+                        document.getElementById("translate-title").textContent = translations[lang].title;
+                        document.getElementById("translate-desc").textContent = translations[lang].desc;
+                        document.getElementById("how-to-title").textContent = translations[lang].howto;
+                        document.getElementById("translate-steps").innerHTML = translations[lang].steps;
+                    }
+                </script>
+                
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="copyright-area">
+                            <p>&copy; 2025 Copyright ESL Coaching. All rights reserved</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="social-media text-right">
+                            <!--
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                            </ul>
+                            -->
+                        <ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer area end here -->
+    <!-- js file start -->
+    <script src="assets/js/vendor/jquery-1.12.0.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/Popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/scrollup.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.meanmenu.js"></script>
+    <script src="assets/js/animated-headline.js"></script>
+    <script src="assets/js/main.js"></script>
+    <!-- End js file -->
 </body>
+
 </html>
